@@ -48,7 +48,7 @@ const month_05Model = mongoose.model("month_05", month_05);
 
 export const getStations = async (request, response) => {
   try {
-    const allStations = await stationModel.find();
+    const allStations = await stationModel.find().limit(5);
 
     response.status(200).json(allStations);
   } catch (error) {

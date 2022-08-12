@@ -97,3 +97,12 @@ export const getTripMonth_05byId = async (request, response) => {
     response.status(404).json({ message: error.message });
   }
 };
+
+export const getTrips = async (request, response) => {
+  try {
+    const trips = await month_05Model.find().limit(5);
+    response.status(200).json(trips);
+  } catch (error) {
+    response.status(404).json({ message: error.message });
+  }
+};

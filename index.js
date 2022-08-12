@@ -8,6 +8,7 @@ import {
   getAStation,
   getTripMonth_05,
   getTripMonth_05byId,
+  getTrips,
 } from "./connection.js";
 
 
@@ -25,11 +26,12 @@ app.get("/", (request, response) => {
 app.get("/api/stations", getStations);
 app.get("/api/stations/:id", getAStation);
 
+app.get("/api/month_05/", getTrips);
 app.get("/api/month_05/:number", getTripMonth_05);
 app.get("/api/month_05/:id", getTripMonth_05byId);
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
